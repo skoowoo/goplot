@@ -8,25 +8,24 @@ import (
 const html = `{{define "T"}}
 <!doctype html>
 <html>
-	<head>
-		<title>Line Chart</title>
-		<script>
-            {{.Chartjs}} 
+    <head>
+        <script>
+            {{.Chartjs}}
         </script>
-		<meta name = "viewport" content = "initial-scale = 1, user-scalable = no">
-		<style>
-			canvas{
+        <meta name = "viewport" content = "initial-scale = 1, user-scalable = no">
+        <style>
+            canvas{
             }
-		</style>
-	</head>
-	<body>
+        </style>
+    </head>
+    <body>
         <div style="padding-top:30px;"></div>
         {{.Canvas}}
         <script>
             {{.JsonCode}}
             {{.NewChart}}
         </script>
-	</body>
+    </body>
 </html>
 {{end}}
 `
@@ -62,10 +61,10 @@ func handler(w http.ResponseWriter, r *http.Request) {
 	} else {
 		chart = ChartHandlers[prop.Name]
 
-		canvas := chart.Canvas("test", prop.Height, prop.Width)
+		canvas := chart.Canvas("line", prop.Height, prop.Width)
 		Args["Canvas"] = canvas
 
-		newChart := chart.NewChart("test")
+		newChart := chart.NewChart("line")
 		Args["NewChart"] = newChart
 
 		if json, err := chart.JsonCode(c); err != nil {
