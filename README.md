@@ -1,11 +1,14 @@
 goplot
 ======
 
+goplot是一个使用简单的绘制图表的工具，图表绘制使用了[Chart.js](http://www.chartjs.org/)开源库，编译好的goplot只有一个二进制文件，不依赖任何库/网络。
 
 ##### 下 载
 [Mac OS X](http://www.bigendian123.com/goplot-darwin.tar.gz)
 
 [Linux amd64](http://www.bigendian123.com/goplot-linux-amd64.tar.gz)
+
+Windows暂缺
 
 ##### 使用方法
 * 解压下载包后，进入解压目录，可以看到一个goplot的可执行文件和一些*.chart文件，这些chart文件是默认的一些数据文件样例。可以在这些chart文件的目录执行goplot，然后通过浏览器访问http://localhost:8000就可以看到图表了。
