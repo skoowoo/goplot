@@ -174,8 +174,8 @@ func ParseDataFile(file string) ([]*ChartDataType, error) {
 	return charts, nil
 }
 
-func LookupCurrentDir(dir string) ([]*ChartDataType, error) {
-	var data []*ChartDataType
+func LookupCurrentDir(dir string) ([]string, error) {
+	var tmp []string = make([]string, 0, 5)
 
 	err := filepath.Walk(dir, func(path string, f os.FileInfo, err error) error {
 		if f == nil {
@@ -190,12 +190,11 @@ func LookupCurrentDir(dir string) ([]*ChartDataType, error) {
 			return err
 		} else if ok {
 			if path == f.Name() {
-				data, err = ParseDataFile(path)
-				return err
+				tmp = append(tmp, path)
 			}
 		}
 		return nil
 	})
 
-	return data, err
+	return tmp, err
 }
