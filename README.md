@@ -1,2 +1,4 @@
 goplot
 ======
+
+![](image/bar.png)
