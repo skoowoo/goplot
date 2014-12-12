@@ -1,6 +1,7 @@
 package main
 
 import (
+	"errors"
 	"net/http"
 	"text/template"
 )
@@ -46,16 +47,10 @@ var (
 )
 
 func handler(w http.ResponseWriter, r *http.Request) {
-	if len(ChartFiles) == 0 {
-		return
-	}
-	var file string
-	if Index < len(ChartFiles) {
-		file = ChartFiles[Index]
-		Index++
-	} else {
+	file := ChartFiles[Index]
+	Index++
+	if Index >= len(ChartFiles) {
 		Index = 0
-		file = ChartFiles[Index]
 	}
 
 	datas, err := ParseDataFile(file)
@@ -112,5 +107,10 @@ func ListenAndServe(addr string) error {
 	if err != nil {
 		return err
 	}
+
+	if len(ChartFiles) == 0 {
+		return errors.New("No chart data.")
+	}
+
 	return http.ListenAndServe(addr, nil)
 }
