@@ -2,6 +2,7 @@ package main
 
 import (
 	"errors"
+	"fmt"
 	"net/http"
 	"text/template"
 )
@@ -22,6 +23,9 @@ const html = `{{define "T"}}
     <body>
         <div style="padding-top:30px;">
             By <a href="http://www.bigendian123.com/skoo.html" target="_blank">skoo</a>
+        </div>
+        <div style="padding-top:30px;">
+        	{{.ItemNames}}
         </div>
         <div style="padding-top:30px;"></div>
         {{.Canvas}}
@@ -45,6 +49,16 @@ var (
 	ChartFiles    []string
 	Index         int
 )
+
+func ItemNames(prop ChartPropType) string {
+	//<font color="red">xxx</font></br>
+	var s string
+	for i, n := range prop.Item {
+		s += fmt.Sprintf("<b><font color=\"%s\">%s</font></b></br>", GetColorValue(i), n)
+	}
+
+	return s
+}
 
 func handler(w http.ResponseWriter, r *http.Request) {
 	file := ChartFiles[Index]
@@ -87,6 +101,8 @@ func handler(w http.ResponseWriter, r *http.Request) {
 		} else {
 			Args["JsonCode"] = json
 		}
+
+		Args["ItemNames"] = ItemNames(prop)
 	}
 
 	if t, err := template.New("foo").Parse(html); err != nil {

@@ -1,12 +1,19 @@
 package main
 
 var colorSets = [...]string{
-	"#2980B9", // blue
-	"#C0392B", // red
-	"#F39C12", // yellow
+	// see : http://www.rapidtables.com/web/color/RGB_Color.htm
+	"#2980B9", // Blue
+	"#C0392B", // Red
+	"#F39C12", // Yellow
+	"#16A085", // Green
+	"#2C3E50", // Black
+	"#808080", // Gray
+	"#00FF00", // Lime
+	"#800080", // Purple
+	"#808000", // Olive
+	"#000080", // Navy
+	"#FF00FF", // Magenta / Fuchsia
 	"#8E44AD", // WISTERIA
-	"#16A085", // green
-	"#2C3E50", // black
 }
 
 func GetColorValue(i int) string {

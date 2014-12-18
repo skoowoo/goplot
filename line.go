@@ -55,7 +55,8 @@ func (l *LineChart) JsonCode(c *ChartDataType) (string, error) {
 	if err != nil {
 		return "", err
 	}
-
+print(string(b))
+print("\n")
 	return fmt.Sprintf("var lineJsonStr = '%s';", string(b)), nil
 }
 
