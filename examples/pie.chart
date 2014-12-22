@@ -1,5 +1,5 @@
 ===
-{ "Name" : "pie", "Height" : 300, "Width" : 550 }
+{ "Name" : "pie", "Height" : 300, "Width" : 550, "ItemName" : ["2011 Q1", "2012 Q1", "2013 Q1", "2014 Q1"] }
 ---
 aaa     10
 bbb     15
