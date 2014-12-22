@@ -1,7 +1,7 @@
 ===
-{ "Name" : "bar", "Height" : 300, "Width" : 550 }
+{ "Name" : "bar", "Height" : 300, "Width" : 550, "ItemName" : ["2011 Q1", "2012 Q1"] }
 ---
 aaa     10  13
 bbb     15  12 
 ccc     23  14
-ddd     20 24
+ddd     20  24

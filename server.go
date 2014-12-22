@@ -53,7 +53,7 @@ var (
 func ItemNames(prop ChartPropType) string {
 	//<font color="red">xxx</font></br>
 	var s string
-	for i, n := range prop.Item {
+	for i, n := range prop.ItemName {
 		s += fmt.Sprintf("<b><font color=\"%s\">%s</font></b></br>", GetColorValue(i), n)
 	}
 

@@ -28,7 +28,7 @@ type ChartPropType struct {
 	Name   string
 	Width  int
 	Height int
-	Item   []string
+	ItemName   []string
 }
 
 type ChartItemType struct {
@@ -87,7 +87,7 @@ func (c *ChartDataType) Prop() (p ChartPropType, err error) {
 	b := c.prop.Bytes()
 	b = bytes.Trim(b, " ")
 	err = json.Unmarshal(b, &p)
-	log.Printf("Chart : %v\n", p.Item)
+	log.Printf("Chart : %v\n", p.ItemName)
 	return
 }
 
